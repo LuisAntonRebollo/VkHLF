@@ -127,7 +127,7 @@ source_group(headers FILES ${PUBLIC_HEADERS})
 source_group(private FILES ${PRIVATE})
 
 #target
-add_library( VkHLF SHARED
+add_library( VkHLF STATIC
   ${SOURCES}
   ${PUBLIC_HEADERS}
   ${PRIVATE}
@@ -145,7 +145,7 @@ target_include_directories(VkHLF
 
 target_link_libraries( VkHLF
   ${OPENGL_gl_LIBRARY}
-  "$ENV{VK_SDK_PATH}/Bin/vulkan-1.lib"
+  #"$ENV{VK_SDK_PATH}/Bin/vulkan-1.lib"
   glslang
   OGLCompiler
   OSDependent
