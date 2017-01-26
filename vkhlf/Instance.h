@@ -65,7 +65,7 @@ namespace vkhlf
              std::shared_ptr<Surface>             createSurface(HINSTANCE hinstance, HWND hwnd, std::shared_ptr<Allocator> const& allocator = nullptr);
 #endif
 #ifdef VK_USE_PLATFORM_XLIB_KHR
-             std::shared_ptr<Surface>             createSurface(Display * dpy, Window window, std::shared_ptr<Allocator> const& allocator = nullptr);
+             std::shared_ptr<Surface>             createSurface(::Display * dpy, Window window, std::shared_ptr<Allocator> const& allocator = nullptr);
 #endif
 #ifdef VK_USE_PLATFORM_XCB_KHR
              std::shared_ptr<Surface>             createSurface(xcb_connection_t * connection, xcb_window_t window, std::shared_ptr<Allocator> const& allocator = nullptr);
@@ -123,7 +123,7 @@ namespace vkhlf
 #endif
   
 #ifdef VK_USE_PLATFORM_XLIB_KHR
-  inline std::shared_ptr<Surface> Instance::createSurface(Display * dpy, Window window, std::shared_ptr<Allocator> const& allocator)
+  inline std::shared_ptr<Surface> Instance::createSurface(::Display * dpy, Window window, std::shared_ptr<Allocator> const& allocator)
   {
     return std::make_shared<Surface>(shared_from_this(), m_instance.createXlibSurfaceKHR(vk::XlibSurfaceCreateInfoKHR({}, dpy, window), *allocator), allocator);
   }
