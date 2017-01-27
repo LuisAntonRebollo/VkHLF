@@ -45,7 +45,7 @@
 #endif
 
 
-#if defined(VK_OS_WINDOWS)
+#if defined(VK_OS_WINDOWS) && defined(VKHLF_SHARED)
 // microsoft specific storage-class defines
 # if defined(VKHLF_EXPORTS)
 #  define VKHLF_API __declspec(dllexport)
