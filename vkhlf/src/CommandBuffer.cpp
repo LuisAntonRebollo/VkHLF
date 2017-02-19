@@ -698,7 +698,7 @@ namespace vkhlf
     }
 
     vkhlf::ImageMemoryBarrier imageMemoryBarrier(srcAccessMask, dstAccessMask, oldImageLayout, newImageLayout, VK_QUEUE_FAMILY_IGNORED, VK_QUEUE_FAMILY_IGNORED, image,
-                                               vk::ImageSubresourceRange(aspectMask, 0, 1, 0, 1));
+                                               vk::ImageSubresourceRange(aspectMask, 0, VK_REMAINING_MIP_LEVELS, 0, VK_REMAINING_ARRAY_LAYERS));
 
     assert(commandBuffer->isRecording());
     commandBuffer->pipelineBarrier(vk::PipelineStageFlagBits::eTopOfPipe, vk::PipelineStageFlagBits::eTopOfPipe, {}, nullptr, nullptr, imageMemoryBarrier);
